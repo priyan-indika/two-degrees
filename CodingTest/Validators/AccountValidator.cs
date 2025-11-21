@@ -15,5 +15,6 @@ namespace CodingTest.Validators
                 .Must(c => c != null && c.Count(cont => cont.IsBillingContact()) == 1)
                 .WithMessage("Exactly 1 billing contact is required");
         }
+
     }
 }

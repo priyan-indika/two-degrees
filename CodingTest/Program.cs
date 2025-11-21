@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Text.Json.Serialization;
 
 namespace CodingTest
 {
@@ -26,6 +27,13 @@ namespace CodingTest
             builder.Services.AddScoped<IOrganisationalUnitService, OrganisationalUnitService>();
 
             builder.Services.AddControllers();
+
+            builder.Services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+                });
 
             var app = builder.Build();
 

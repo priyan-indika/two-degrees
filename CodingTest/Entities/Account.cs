@@ -1,3 +1,4 @@
+using CodingTest.Enums;
 using System.Collections.Generic;
 
 namespace CodingTest.Entities
@@ -13,5 +14,8 @@ namespace CodingTest.Entities
         public int OrganisationalUnitId { get; set; }
 
         public OrganisationalUnit OrganisationalUnit { get; set; }
+
+
+        public InvoiceDeliveryMethod DeliveryMethod { get; set; }
     }
 }
